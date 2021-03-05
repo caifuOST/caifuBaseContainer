@@ -30,7 +30,7 @@ RUN echo && \
     rm -rf /var/lib/apt/lists/* && \
     printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
     curl -sL https://github.com/openfaas/faas/releases/download/0.9.14/fwatchdog > /usr/bin/fwatchdog && \
-    chmod +x /usr/bin/fwatchdo    
+    chmod +x /usr/bin/fwatchdo && \    
     printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
     printf " -- DONE -- "
 
