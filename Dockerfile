@@ -2,7 +2,7 @@
 #FROM resin/rpi-raspbian:wheezy
 FROM balenalib/raspberry-pi-debian:latest
 
-# Install dependencies & pull p1reader script
+# Prepare the image with specific python3 needs and ensure we have the OpenFaas fwatchdog included.
 RUN echo && \
     printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
     apt-get update && \
@@ -27,10 +27,12 @@ RUN echo && \
     printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
     apt-get clean  && \
     printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN curl -sL https://github.com/openfaas/faas/releases/download/0.9.14/fwatchdog > /usr/bin/fwatchdog && \
-    chmod +x /usr/bin/fwatchdog
+    rm -rf /var/lib/apt/lists/* && \
+    printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
+    curl -sL https://github.com/openfaas/faas/releases/download/0.9.14/fwatchdog > /usr/bin/fwatchdog && \
+    chmod +x /usr/bin/fwatchdo    
+    printf "\n\n--------------------------------------------------------------------------------------------------------\n" && \
+    printf " -- DONE -- "
 
 
 # Define your binary here
