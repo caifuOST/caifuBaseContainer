@@ -1,5 +1,12 @@
+# Description
+# Custom base image for caifuOST function containers. The need for a custom image is based upon a number of usecases; (A) to 
+# upport a more smooth build process for OpenFaas functions for ARM architecture deployment targets and (B) to ensure a set 
+# of caifuOST specific requirments will always be included in the base image. 
+#
+
+
+
 # Pull base image
-#FROM resin/rpi-raspbian:wheezy
 FROM balenalib/raspberry-pi-debian:latest
 
 # Prepare the image with specific python3 needs and ensure we have the OpenFaas fwatchdog included.
